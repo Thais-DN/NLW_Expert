@@ -2,6 +2,7 @@ import { ChangeEvent, useState } from "react";
 import logo from "./assets/Logo-nlw-expert.svg";
 import { NewNoteCard } from "./components/New-note-card";
 import { NodeCard } from "./components/Note-card";
+import { toast } from "sonner";
 
 interface Note {
     id: string;
@@ -42,6 +43,7 @@ export function App() {
         setNotes(notesArray);
 
         localStorage.setItem("notes", JSON.stringify(notesArray));
+        toast.success("Nota excluida com sucesso!");
     }
 
     function handleSearch(event: ChangeEvent<HTMLInputElement>) {
